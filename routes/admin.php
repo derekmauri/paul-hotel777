@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AkunTamuController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\FasilitasController;
 use App\Http\Controllers\Admin\GaleriController;
@@ -30,3 +31,4 @@ Route::resource('tipe', TipeController::class);
 Route::resource('fasilitas', FasilitasController::class);
 Route::resource('tamu', TamuController::class);
 Route::resource('galeri', GaleriController::class);
+Route::resource('akunTamu', AkunTamuController::class);

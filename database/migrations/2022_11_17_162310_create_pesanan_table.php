@@ -26,7 +26,7 @@ class CreatePesananTable extends Migration
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
             $table->string('total_bayar', 100);
-            $table->string('ket', 100);
+            $table->string('ket', 100)->nullable();
             $table->timestamps();
         });
     }

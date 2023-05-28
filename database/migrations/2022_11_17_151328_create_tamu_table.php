@@ -15,10 +15,6 @@ class CreateTamuTable extends Migration
     {
         Schema::create('tamu', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')
-            ->constrained('user')
-            ->onUpdate('cascade')
-            ->onDelete('cascade');
             $table->string('nik', 16);
             $table->string('nm_tamu', 50);
             $table->string('tempat', 50);
