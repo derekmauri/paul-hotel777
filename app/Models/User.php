@@ -45,8 +45,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function tamu()
+    public function akunTamu()
     {
-        return $this->hasOne(tamu::class);
+        return $this->hasOne(AkunTamu::class);
     }
 }

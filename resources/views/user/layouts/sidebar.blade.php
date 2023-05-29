@@ -15,7 +15,7 @@
                         class="path2"></span></i>PROFIL KAMI</a></li>
 
         @role('tamu')
-            <li><a href="#"><i class="fa fa-tasks"><span class="path1"></span><span
+            <li><a href="{{ route('user-booking.index') }}"><i class="fa fa-tasks"><span class="path1"></span><span
                             class="path2"></span></i>BOOKING</a></li>
         @endrole
 
@@ -23,8 +23,11 @@
                         class="path2"></span></i>GALERI FOTO</a></li>
         <li><a href="{{ route('kontak.index') }}"><i class="fa fa-phone-square"><span class="path1"></span><span
                         class="path2"></span></i>KONTAK KAMI</a></li>
-        <li><a href="/login"><i class="fa  fa-sign-in"><span class="path1"></span><span
-                        class="path2"></span></i>LOGIN</a></li>
+        @auth
+        @else
+            <li><a href="/login"><i class="fa  fa-sign-in"><span class="path1"></span><span
+                            class="path2"></span></i>LOGIN</a></li>
+        @endauth
 
     </ul>
 </nav>

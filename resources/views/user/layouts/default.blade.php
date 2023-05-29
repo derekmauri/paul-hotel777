@@ -5,23 +5,24 @@
     <div class="wrapper">
         <div id="loader"></div>
 
-@include('user.layouts.navbar')
+        @include('user.layouts.navbar')
 
-@include('user.layouts.sidebar')
+        @include('user.layouts.sidebar')
 
-<div class="content-wrapper">
-    <div class="container-full">
-@yield('main')
+        <div class="content-wrapper">
+            <div class="container-full">
+                @yield('main')
+            </div>
+        </div>
+
+        @include('user.layouts.footer')
+
+        <div class="control-sidebar-bg"></div>
     </div>
-</div>
 
-@include('user.layouts.footer')
+    @include('user.layouts.script')
 
-    <div class="control-sidebar-bg"></div>
-    </div>
-
-@include('user.layouts.script')
-
-
+    @yield('script')
 </body>
+
 </html>

@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\ChecAuthController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\User\BookingController;
 use App\Http\Controllers\User\DashboardController;
 use App\Http\Controllers\User\GaleriController;
 use App\Http\Controllers\User\KontakMamiController;
@@ -38,3 +39,4 @@ Route::get('/', [DashboardController::class, 'index'])->name('tamu');
 Route::resource('profil', ProfilController::class);
 Route::resource('galeriUser', GaleriController::class);
 Route::resource('kontak', KontakMamiController::class);
+Route::resource('user-booking', BookingController::class);
