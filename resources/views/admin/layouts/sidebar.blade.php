@@ -35,6 +35,10 @@
                         <a href="{{ route('akunTamu.index') }}"><i class="fa fa-users"></i><span>AKUN
                                 TAMU</span></a>
                     </li>
+                    <li>
+                        <a href="{{ route('booking.index') }}"><i class="fa fa-tasks"><span class="path1"></span><span
+                                    class="path2"></span></i>BOOKING</a>
+                    </li>
                 </ul>
             </div>
         </div>

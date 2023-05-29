@@ -19,13 +19,13 @@ class CreatePesananTable extends Migration
                 ->constrained('tamu')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-            $table->string('checkin', 20);
-            $table->string('lama', 20);
+            $table->date('checkin', 20);
+            $table->integer('lama');
             $table->foreignId('tipe_id')
                 ->constrained('tipe')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-            $table->string('total_bayar', 100);
+            $table->integer('total_bayar');
             $table->string('ket', 100)->nullable();
             $table->timestamps();
         });

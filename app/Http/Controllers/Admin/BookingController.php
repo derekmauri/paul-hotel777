@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use App\Models\AkunTamu;
-use App\Models\tamu;
-use App\Models\User;
+use App\Models\tipe;
+use App\Models\Booking;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\tamu;
 
-class AkunTamuController extends Controller
+class BookingController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +17,10 @@ class AkunTamuController extends Controller
      */
     public function index()
     {
-        $akunTamu = AkunTamu::with(['tamu', 'user'])->get();
-        return view('admin.akunTamu.index', [
-            'akunTamu' => $akunTamu
+        $booking = Booking::all();
+        return view('admin.booking.index', [
+            'booking' => $booking,
+
         ]);
     }
 
@@ -30,9 +31,11 @@ class AkunTamuController extends Controller
      */
     public function create()
     {
+        $tipe = tipe::all();
         $tamu = tamu::all();
-        return view('admin.akunTamu.insert', [
-            'tamu' => $tamu
+        return view('admin.booking.insert', [
+            'tipe' => $tipe,
+            'tamu' => $tamu,
         ]);
     }
 
@@ -44,27 +47,9 @@ class AkunTamuController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'tamu_id' => 'required|unique:akun_tamu|max:255',
-        ]);
+        Booking::create($request->all());
 
-        $tamu_id = $request->tamu_id;
-        // cari data tamu id
-        $tamu = tamu::find($tamu_id);
-        // input data user
-        $user = User::create([
-            'name' => $tamu->nm_tamu,
-            'email' => $request->email,
-            'password' => bcrypt($request->password),
-            'show_password' => $request->password
-        ]);
-        $user->attachRole('tamu');
-        AkunTamu::create([
-            'tamu_id' => $tamu_id,
-            'user_id' => $user->id,
-        ]);
-
-        return redirect()->route('akunTamu.index')
+        return redirect()->route('booking.index')
             ->with('berhasil', 'Data Berhasil Disimpan');
     }
 
@@ -87,9 +72,13 @@ class AkunTamuController extends Controller
      */
     public function edit($id)
     {
-        $akunTamu = AkunTamu::find($id);
-        return view('admin.akunTamu.update', [
-            'akunTamu' => $akunTamu,
+        $tipe = tipe::all();
+        $tamu = tamu::all();
+        $booking = Booking::find($id);
+        return view('admin.booking.update', [
+            'booking' => $booking,
+            'tipe' => $tipe,
+            'tamu' => $tamu,
         ]);
     }
 
@@ -102,13 +91,8 @@ class AkunTamuController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $tamu = AkunTamu::find($id);
-        User::find($tamu->user_id)->update([
-            'email' => $request->email,
-            'password' => bcrypt($request->password),
-            'show_password' => $request->password
-        ]);
-        return redirect()->route('akunTamu.index')
+        Booking::find($id)->update($request->all());
+        return redirect()->route('booking.index')
             ->with('berhasil', 'Data Berhasil Diubah');
     }
 
@@ -120,10 +104,8 @@ class AkunTamuController extends Controller
      */
     public function destroy($id)
     {
-        $tamu = AkunTamu::find($id);
-        User::destroy($tamu->user_id);
-        tamu::destroy($id);
-        return redirect()->route('akunTamu.index')
+        Booking::destroy($id);
+        return redirect()->route('booking.index')
             ->with('berhasil', 'Data Berhasil Dihapus');
     }
 }

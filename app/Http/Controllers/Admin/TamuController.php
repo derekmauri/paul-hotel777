@@ -41,7 +41,7 @@ class TamuController extends Controller
     public function store(Request $request)
     {
         $ekstensi_foto = $request->file('foto')->extension();
-        $nama_foto = time(). '.' . $ekstensi_foto;
+        $nama_foto = time() . '.' . $ekstensi_foto;
         Storage::putFileAs('public/tamu', $request->foto, $nama_foto);
 
         tamu::create([
@@ -49,7 +49,7 @@ class TamuController extends Controller
             'nm_tamu' => $request->nm_tamu,
             'tempat' => $request->tempat,
             'tgl_lahir' => $request->tgl_lahir,
-            'jenkel' => $request->jenkel,            
+            'jenkel' => $request->jenkel,
             'agama' => $request->agama,
             'status' => $request->status,
             'foto' => $nama_foto,
@@ -80,7 +80,7 @@ class TamuController extends Controller
     public function edit($id)
     {
         $tamu = tamu::find($id);
-        return view('admin.tamu.update',[
+        return view('admin.tamu.update', [
             'tamu' => $tamu
         ]);
     }
@@ -95,7 +95,7 @@ class TamuController extends Controller
     public function update(Request $request, $id)
     {
         $ekstensi_foto = $request->file('foto')->extension();
-        $nama_foto = time(). '.' . $ekstensi_foto;
+        $nama_foto = time() . '.' . $ekstensi_foto;
         Storage::putFileAs('public/tamu', $request->foto, $nama_foto);
 
         tamu::find($id)->update([
@@ -122,8 +122,10 @@ class TamuController extends Controller
      */
     public function destroy($id)
     {
-        tamu::destroy($id);
+        $tamu = tamu::find($id);
+        Storage::delete("public/tamu/$tamu->foto");
+        $tamu->delete();
         return redirect()->route('tamu.index')
-            ->with('berhasil','Data Berhasil Dihapus');
+            ->with('berhasil', 'Data Berhasil Dihapus');
     }
 }

@@ -1,6 +1,6 @@
 @extends('admin.layouts.default')
 
-@section('judul', 'Tambah Data Akun Tamu')
+@section('judul', 'Tambah Data Booking Kamar')
 
 @section('main')
 
@@ -12,18 +12,10 @@
             <div class="content-header">
                 <div class="d-flex align-items-center">
                     <div class="me-auto">
-                        <h3 class="page-title">- Akun Tamu -</h3>
+                        <h3 class="page-title">- Booking Kamar -</h3>
                     </div>
                 </div>
             </div>
-            @error('tamu_id')
-                <div class="box-body pad res-tb-block">
-                    <div class="alert alert-danger alert-dismissible">
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        {{ $message }}
-                    </div>
-                </div>
-            @enderror
 
             <!-- Main content -->
             <section class="content">
@@ -31,17 +23,31 @@
                 <!-- Basic Forms -->
                 <div class="box">
                     <div class="box-header with-border">
-                        <h4 class="box-title">Form Tambah Data Akun Tamu</h4>
+                        <h4 class="box-title">Form Tambah Data Booking Kamar</h4>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
                         <div class="row">
                             <div class="col">
-                                <form action="{{ route('akunTamu.store') }}" method="POST" enctype="multipart/form-data"
+                                <form action="{{ route('booking.store') }}" method="POST" enctype="multipart/form-data"
                                     novalidate>
                                     @csrf
                                     <div class="row">
                                         <div class="col-12">
+                                            <div class="form-group">
+                                                <h5>Tipe Kamar<span class="text-danger"></span></h5>
+                                                <div class="controls">
+                                                    <select name="tipe_id" id="tipe_id" required class="form-select">
+                                                        <option value="">- Pilih Tipe Kamar -</option>
+                                                        @foreach ($tipe as $item)
+                                                            <option value="{{ $item->id }}"
+                                                                data-harga="{{ $item->harga }}">{{ $item->tipe_kamar }}
+                                                            </option>
+                                                        @endforeach
+                                                    </select>
+                                                    <span id="harga_id"></span>
+                                                </div>
+                                            </div>
                                             <div class="form-group">
                                                 <h5>Tamu<span class="text-danger"></span></h5>
                                                 <div class="controls">
@@ -55,18 +61,34 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <h5>Email <span class="text-danger"></span></h5>
+                                                <h5>Tgl. Check-in <span class="text-danger"></span></h5>
                                                 <div class="controls">
-                                                    <input type="email" name="email" id="email" class="form-control"
+                                                    <input type="date" name="checkin" id="checkin" class="form-control"
                                                         required data-validation-required-message="Tidak boleh kosong">
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <h5>Password <span class="text-danger"></span></h5>
+                                                <h5>Lama <span class="text-danger"></span></h5>
                                                 <div class="controls">
-                                                    <input type="text" name="password" id="password"
+                                                    <input type="number" value="1" name="lama" id="lama"
                                                         class="form-control" required
                                                         data-validation-required-message="Tidak boleh kosong">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <h5>Total Bayar <span class="text-danger"></span></h5>
+                                                <div class="controls">
+                                                    <span id="total_rupiah"></span>
+                                                    <input type="hidden" readonly name="total_bayar" id="total_bayar"
+                                                        class="form-control" required
+                                                        data-validation-required-message="Tidak boleh kosong">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <h5>Ket <span class="text-danger"></span></h5>
+                                                <div class="controls">
+                                                    <input type="text" name="ket" id="ket"
+                                                        class="form-control">
                                                 </div>
                                             </div>
                                         </div>
@@ -92,4 +114,8 @@
     </div>
     <!-- /.content-wrapper -->
 
+@endsection
+
+@section('script')
+    <script src="{{ asset('js/booking.js') }}"></script>
 @endsection

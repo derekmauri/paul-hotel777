@@ -20,7 +20,6 @@ class KaryawanController extends Controller
         return view('admin.karyawan.index', [
             'karyawan' => $karyawan
         ]);
-
     }
 
     /**
@@ -42,7 +41,7 @@ class KaryawanController extends Controller
     public function store(Request $request)
     {
         $ekstensi_foto = $request->file('foto')->extension();
-        $nama_foto = time(). '.' . $ekstensi_foto;
+        $nama_foto = time() . '.' . $ekstensi_foto;
         Storage::putFileAs('public/karyawan', $request->foto, $nama_foto);
 
         karyawan::create([
@@ -80,7 +79,7 @@ class KaryawanController extends Controller
     public function edit($id)
     {
         $karyawan = karyawan::find($id);
-        return view('admin.karyawan.update',[
+        return view('admin.karyawan.update', [
             'karyawan' => $karyawan
         ]);
     }
@@ -95,7 +94,7 @@ class KaryawanController extends Controller
     public function update(Request $request, $id)
     {
         $ekstensi_foto = $request->file('foto')->extension();
-        $nama_foto = time(). '.' . $ekstensi_foto;
+        $nama_foto = time() . '.' . $ekstensi_foto;
         Storage::putFileAs('public/karyawan', $request->foto, $nama_foto);
 
         karyawan::find($id)->update([
@@ -121,8 +120,10 @@ class KaryawanController extends Controller
      */
     public function destroy($id)
     {
-        karyawan::destroy($id);
+        $karyawan = karyawan::find($id);
+        Storage::delete("public/karyawan/$karyawan->foto");
+        $karyawan->delete();
         return redirect()->route('karyawan.index')
-            ->with('berhasil','Data Berhasil Dihapus');
+            ->with('berhasil', 'Data Berhasil Dihapus');
     }
 }
