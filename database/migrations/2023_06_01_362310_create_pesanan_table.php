@@ -19,12 +19,9 @@ class CreatePesananTable extends Migration
                 ->constrained('tamu')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-            $table->date('checkin', 20);
+            $table->foreignId('daftar_kamar_id')->constrained('daftar_kamar')->onUpdate('cascade')->onDelete('cascade');
+            $table->date('checkin');
             $table->integer('lama');
-            $table->foreignId('tipe_id')
-                ->constrained('tipe')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
             $table->integer('total_bayar');
             $table->string('ket', 100)->nullable();
             $table->timestamps();
