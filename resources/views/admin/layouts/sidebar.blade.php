@@ -46,6 +46,10 @@
                         <a href="{{ route('booking.index') }}"><i class="fa fa-tasks"><span class="path1"></span><span
                                     class="path2"></span></i>BOOKING</a>
                     </li>
+                    <li>
+                        <a href="{{ route('transaksi.index') }}"><i class="fa fa-tasks"><span
+                                    class="path1"></span><span class="path2"></span></i>TRANSAKSI</a>
+                    </li>
                 </ul>
             </div>
         </div>

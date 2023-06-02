@@ -13,10 +13,10 @@ class DaftarKamar extends Model
 
     public function tipe()
     {
-        return $this->belongsTo(Tipe::class);
+        return $this->belongsTo(tipe::class);
     }
     public function tamu()
     {
-        return $this->belongsTo(Tamu::class);
+        return $this->belongsTo(tamu::class);
     }
 }

@@ -1,5 +1,5 @@
 // find tipe kamar
-const tipeKamar = document.getElementById("tipe_id");
+const tipeKamar = document.getElementById("daftar_kamar_id");
 const lama = document.getElementById("lama");
 
 console.log("booking");

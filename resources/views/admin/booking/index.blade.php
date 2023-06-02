@@ -47,6 +47,7 @@
                                                 <th>No</th>
                                                 <th>Nama Tamu</th>
                                                 <th>Tipe Kamar</th>
+                                                <th>No. Kamar</th>
                                                 <th>Harga</th>
                                                 <th>Tgl. Booking</th>
                                                 <th>Lama</th>
@@ -59,11 +60,12 @@
                                                 <tr>
                                                     <td align="center">{{ $loop->iteration }}</td>
                                                     <td>{{ $item->tamu->nm_tamu }}</td>
-                                                    <td>{{ $item->tipe->tipe_kamar }}</td>
-                                                    <td>{{ $item->tipe->harga }}</td>
+                                                    <td>{{ $item->daftarKamar->tipe->tipe_kamar }}</td>
+                                                    <td>{{ $item->daftarKamar->no_kamar }}</td>
+                                                    <td>@rupiah($item->daftarKamar->tipe->harga)</td>
                                                     <td>{{ $item->checkin }}</td>
                                                     <td>{{ $item->lama }} hari</td>
-                                                    <td>{{ $item->total_bayar }}</td>
+                                                    <td>@rupiah($item->total_bayar)</td>
                                                     <td align="center">
                                                         <a href="{{ route('booking.edit', $item->id) }}"><button
                                                                 type="submit"
@@ -87,6 +89,7 @@
                                                 <th>No</th>
                                                 <th>Nama Tamu</th>
                                                 <th>Tipe Kamar</th>
+                                                <th>No. Kamar</th>
                                                 <th>Harga</th>
                                                 <th>Tgl. Booking</th>
                                                 <th>Lama</th>

@@ -39,14 +39,15 @@
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="form-group">
-                                                <h5>Tipe Kamar<span class="text-danger"></span></h5>
+                                                <h5>Pilih Kamar<span class="text-danger"></span></h5>
                                                 <div class="controls">
-                                                    <select name="tipe_id" id="tipe_id" required class="form-select">
-                                                        <option value="">- Pilih Tipe Kamar -</option>
-                                                        @foreach ($tipe as $item)
-                                                            <option @if ($item->id == $booking->tipe_id) selected @endif
-                                                                data-harga="{{ $item->harga }}"
-                                                                value="{{ $item->id }}">{{ $item->tipe_kamar }}</option>
+                                                    <select name="daftar_kamar_id" id="daftar_kamar_id" required
+                                                        class="form-select">
+                                                        <option value="">- Pilih Kamar -</option>
+                                                        @foreach ($daftarKamar as $item)
+                                                            <option @if ($item->id == $booking->daftar_kamar_id) selected @endif
+                                                                data-harga="{{ $item->tipe->harga }}"
+                                                                value="{{ $item->id }}">{{ $item->no_kamar }}</option>
                                                         @endforeach
                                                     </select>
                                                     <span id="harga_id"></span>

@@ -15,8 +15,8 @@ class Booking extends Model
     {
         return $this->belongsTo(tamu::class, 'tamu_id');
     }
-    public function tipe()
+    public function daftarKamar()
     {
-        return $this->belongsTo(tipe::class, 'tipe_id');
+        return $this->belongsTo(DaftarKamar::class);
     }
 }

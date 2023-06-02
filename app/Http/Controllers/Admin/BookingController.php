@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\tipe;
 use App\Models\Booking;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\DaftarKamar;
 use App\Models\tamu;
 
 class BookingController extends Controller
@@ -31,10 +31,10 @@ class BookingController extends Controller
      */
     public function create()
     {
-        $tipe = tipe::all();
+        $daftarKamar = DaftarKamar::all();
         $tamu = tamu::all();
         return view('admin.booking.insert', [
-            'tipe' => $tipe,
+            'daftarKamar' => $daftarKamar,
             'tamu' => $tamu,
         ]);
     }
@@ -72,12 +72,12 @@ class BookingController extends Controller
      */
     public function edit($id)
     {
-        $tipe = tipe::all();
+        $daftarKamar = daftarKamar::all();
         $tamu = tamu::all();
         $booking = Booking::find($id);
         return view('admin.booking.update', [
             'booking' => $booking,
-            'tipe' => $tipe,
+            'daftarKamar' => $daftarKamar,
             'tamu' => $tamu,
         ]);
     }

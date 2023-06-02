@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\GaleriController;
 use App\Http\Controllers\Admin\KaryawanController;
 use App\Http\Controllers\Admin\TamuController;
 use App\Http\Controllers\Admin\TipeController;
+use App\Http\Controllers\TransaksiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,3 +37,4 @@ Route::resource('galeri', GaleriController::class);
 Route::resource('akunTamu', AkunTamuController::class);
 Route::resource('booking', BookingController::class);
 Route::resource('daftarKamar', DaftarKamarController::class);
+Route::get('transaksi', [TransaksiController::class, 'index'])->name('transaksi.index');
