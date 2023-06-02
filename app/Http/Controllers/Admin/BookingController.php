@@ -20,7 +20,6 @@ class BookingController extends Controller
         $booking = Booking::all();
         return view('admin.booking.index', [
             'booking' => $booking,
-
         ]);
     }
 

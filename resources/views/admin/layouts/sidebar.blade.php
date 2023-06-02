@@ -43,7 +43,8 @@
                                 TAMU</span></a>
                     </li>
                     <li>
-                        <a href="{{ route('booking.index') }}"><i class="fa fa-tasks"><span class="path1"></span><span
+                        <a href="{{ route('booking.index') }}">
+                            <i class="fa fa-money"><span class="path1"></span><span
                                     class="path2"></span></i>BOOKING</a>
                     </li>
                     <li>
