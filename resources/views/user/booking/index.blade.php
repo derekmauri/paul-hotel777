@@ -30,36 +30,33 @@
                                         <thead>
                                             <tr>
                                                 <th>No</th>
-                                                <th>Nama Tamu</th>
                                                 <th>Tipe Kamar</th>
-                                                <th>Harga</th>
-                                                <th>Tgl. Booking</th>
-                                                <th>Lama</th>
-                                                <th>Total Bayar</th>
+                                                <th>No Kamar</th>
+                                                <th>Deskripsi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($booking as $item)
-                                                <tr>
+                                            @foreach ($daftarKamar as $item)
+                                                @php
+                                                    $dipesan = '';
+                                                    if ($item->booking->count()) {
+                                                        $dipesan = 'bg-dipesan';
+                                                    }
+                                                @endphp
+                                                <tr class="{{ $dipesan }}">
                                                     <td align="center">{{ $loop->iteration }}</td>
-                                                    <td>{{ $item->tamu->nm_tamu }}</td>
                                                     <td>{{ $item->tipe->tipe_kamar }}</td>
-                                                    <td>{{ $item->tipe->harga }}</td>
-                                                    <td>{{ $item->checkin }}</td>
-                                                    <td>{{ $item->lama }} hari</td>
-                                                    <td>{{ $item->total_bayar }}</td>
+                                                    <td>{{ $item->no_kamar }}</td>
+                                                    <td>{{ $item->deskripsi }}</td>
                                                 </tr>
                                             @endforeach
                                         </tbody>
                                         <tfoot>
                                             <tr>
                                                 <th>No</th>
-                                                <th>Nama Tamu</th>
                                                 <th>Tipe Kamar</th>
-                                                <th>Harga</th>
-                                                <th>Tgl. Booking</th>
-                                                <th>Lama</th>
-                                                <th>Total Bayar</th>
+                                                <th>No Kamar</th>
+                                                <th>Deskripsi</th>
                                             </tr>
                                         </tfoot>
                                     </table>
@@ -125,8 +122,9 @@
                                                 <tr>
                                                     <td align="center">{{ $loop->iteration }}</td>
                                                     <td>{{ $item->tamu->nm_tamu }}</td>
-                                                    <td>{{ $item->tipe->tipe_kamar }}</td>
-                                                    <td>{{ $item->tipe->harga }}</td>
+                                                    <td>{{ $item->daftarKamar->no_kamar }}</td>
+                                                    <td>{{ $item->daftarKamar->tipe->tipe_kamar }}</td>
+                                                    <td>{{ $item->daftarKamar->tipe->harga }}</td>
                                                     <td>{{ $item->checkin }}</td>
                                                     <td>{{ $item->lama }} hari</td>
                                                     <td>{{ $item->total_bayar }}</td>

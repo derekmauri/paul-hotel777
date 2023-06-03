@@ -39,10 +39,12 @@ class TipeController extends Controller
      */
     public function store(Request $request)
     {
+        // remove characters escape number
+        $harga = str_replace('.', '', $request->harga);
 
         tipe::create([
             'tipe_kamar' => $request->tipe_kamar,
-            'harga' => $request->harga,
+            'harga' => $harga,
         ]);
 
         return redirect()->route('tipe.index')
@@ -91,6 +93,8 @@ class TipeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        tipe::destroy($id);
+        return redirect()->route('tipe.index')
+            ->with('berhasil', 'Data Berhasil Dihapus');
     }
 }

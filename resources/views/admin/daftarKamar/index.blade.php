@@ -12,7 +12,7 @@
             <div class="content-header">
                 <div class="d-flex align-items-center">
                     <div class="me-auto">
-                        <h3 class="page-title">- Daftar Kamar Kamar -</h3>
+                        <h3 class="page-title">- Daftar Kamar -</h3>
                     </div>
 
                     <div class="clearfix">
@@ -53,7 +53,13 @@
                                         </thead>
                                         <tbody>
                                             @foreach ($daftarKamar as $item)
-                                                <tr>
+                                                @php
+                                                    $dipesan = '';
+                                                    if ($item->booking->count()) {
+                                                        $dipesan = 'bg-dipesan';
+                                                    }
+                                                @endphp
+                                                <tr class="{{ $dipesan }}">
                                                     <td align="center">{{ $loop->iteration }}</td>
                                                     <td>{{ $item->tipe->tipe_kamar }}</td>
                                                     <td>{{ $item->no_kamar }}</td>

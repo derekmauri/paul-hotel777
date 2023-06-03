@@ -19,4 +19,8 @@ class DaftarKamar extends Model
     {
         return $this->belongsTo(tamu::class);
     }
+    public function booking()
+    {
+        return $this->hasMany(Booking::class);
+    }
 }

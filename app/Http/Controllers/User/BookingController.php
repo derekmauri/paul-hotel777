@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\Booking;
+use App\Models\DaftarKamar;
 use App\Models\tamu;
 use App\Models\tipe;
 use App\Models\User;
@@ -19,11 +20,11 @@ class BookingController extends Controller
      */
     public function index()
     {
-        $booking = Booking::all();
+        $daftarKamar = DaftarKamar::all();
         $tamu = Auth::user()->akunTamu;
         $riwayat_booking = Booking::where('tamu_id', $tamu->tamu_id)->get();
         return view('user.booking.index', [
-            'booking' => $booking,
+            'daftarKamar' => $daftarKamar,
             'riwayat_booking' => $riwayat_booking,
             'tamu' => $tamu,
         ]);

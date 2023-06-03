@@ -27,5 +27,6 @@
     src="{{ asset('asset_admin/assets/vendor_components/Magnific-Popup-master/dist/jquery.magnific-popup-init.js') }}">
 </script>
 <script src="{{ asset('asset_admin/js/pages/gallery.js') }}"></script>
+<script src="{{ asset('js/myTools.js') }}"></script>
 
 @yield('script')
