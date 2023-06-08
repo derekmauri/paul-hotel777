@@ -24,8 +24,10 @@ function ambilData({ bulan = "", tahun = "" }) {
                                 <td>${data[i].checkin}</td>
                                 <td>${rupiah(data[i].total_bayar)}</td>
                             </tr>`;
-                totalBayar += data[i].total_bayar;
+                totalBayar += parseInt(data[i].total_bayar);
+                console.log({ totalBayar });
             }
+            console.log({ totalBayar });
             totalBayar = rupiah(totalBayar);
             isiBody += `<tr>
                             <th colspan="2">Total</th>
