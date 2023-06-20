@@ -45,6 +45,7 @@
                                         <thead>
                                             <tr>
                                                 <th>No</th>
+                                                <th>Nama</th>
                                                 <th>Tgl. Checkin</th>
                                                 <th>Bayar</th>
                                             </tr>

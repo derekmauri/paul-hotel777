@@ -12,7 +12,7 @@ class TransaksiApi extends Controller
     {
         $bulan = $request->bulan;
         $tahun = $request->tahun;
-        $data = Booking::whereMonth('checkin', 'like', "%$bulan%")
+        $data = Booking::with('tamu')->whereMonth('checkin', 'like', "%$bulan%")
             ->whereYear('checkin', 'like', "%$tahun%")
             ->orderBy('checkin', 'desc')
             ->get();

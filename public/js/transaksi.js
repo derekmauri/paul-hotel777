@@ -21,6 +21,7 @@ function ambilData({ bulan = "", tahun = "" }) {
             for (let i = 0; i < data.length; i++) {
                 isiBody += `<tr>
                                 <td>${i + 1}</td>
+                                <td>${data[i].tamu.nm_tamu}</td>
                                 <td>${data[i].checkin}</td>
                                 <td>${rupiah(data[i].total_bayar)}</td>
                             </tr>`;
@@ -30,7 +31,7 @@ function ambilData({ bulan = "", tahun = "" }) {
             console.log({ totalBayar });
             totalBayar = rupiah(totalBayar);
             isiBody += `<tr>
-                            <th colspan="2">Total</th>
+                            <th colspan="3">Total</th>
                             <th>${totalBayar}</th>
                         </tr>`;
             tbodyTransaksi.innerHTML = isiBody;
