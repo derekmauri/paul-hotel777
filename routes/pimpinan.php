@@ -1,6 +1,10 @@
 <?php
 
 use App\Http\Controllers\Pimpinan\DashboardController;
+use App\Http\Controllers\Pimpinan\KaryawanController;
+use App\Http\Controllers\Pimpinan\TamuController;
+use App\Http\Controllers\Pimpinan\GaleriController;
+use App\Http\Controllers\Pimpinan\TransaksiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,3 +25,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [DashboardController::class, 'index'])->name('pimpinan');
 
+Route::resource('karyawan-pimpinan', KaryawanController::class);
+Route::resource('tamu-pimpinan', TamuController::class);
+Route::resource('galeri-pimpinan', GaleriController::class);
+
+Route::get('transaksi-pimpinan', [TransaksiController::class, 'index'])->name('transaksi-pimpinan.index');

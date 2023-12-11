@@ -20,4 +20,7 @@
     <link rel="stylesheet" href="{{ asset('asset_user/css/skin_color.css') }}">
     <link rel="stylesheet" href="{{ asset('css/myStyle.css') }}">
 
+    {{-- <link rel="stylesheet" href="{{ asset('css/Home.css') }}"> --}}
+    @yield('style')
+    
 </head>

@@ -64,7 +64,6 @@
                                 <td>{{$item->status}}</td>
                                 <td>{{$item->no_telepon}}</td>
                                 <td>{{$item->alamat}}</td>
-                                {{-- <td>{{$item->foto}}</td> --}}
                                 <td>  <a href="{{asset('storage/karyawan/' .$item->foto)}}" data-gallery="multiimages" title="Foto Karyawan"><img src="{{asset('storage/karyawan/' .$item->foto)}}" class="all studio" alt="gallery" /></a></td>
                                 <td align="center">
                                     <a href="{{route('karyawan.edit', $item->id)}}"><button type="submit" class="waves-effect waves-light btn btn-outline btn-success mb-5"><i class="fa fa-edit (alias)"></i> Edit</button></a>

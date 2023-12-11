@@ -19,4 +19,6 @@
       <link rel="stylesheet" href="{{ asset('asset_admin/css/style.css')}}">
       <link rel="stylesheet" href="{{ asset('asset_admin/css/skin_color.css')}}">
 
+
+      @yield('style')
   </head>

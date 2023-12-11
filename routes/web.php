@@ -8,6 +8,10 @@ use App\Http\Controllers\User\DashboardController;
 use App\Http\Controllers\User\GaleriController;
 use App\Http\Controllers\User\KontakMamiController;
 use App\Http\Controllers\User\ProfilController;
+use App\Http\Controllers\User\KaryawanController;
+use App\Http\Controllers\User\KamarController;
+use App\Http\Controllers\User\FasilitasController;
+use App\Http\Controllers\User\TipeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,4 +43,7 @@ Route::get('/', [DashboardController::class, 'index'])->name('tamu');
 Route::resource('profil', ProfilController::class);
 Route::resource('galeriUser', GaleriController::class);
 Route::resource('kontak', KontakMamiController::class);
+Route::resource('karyawan-user', KaryawanController::class);
+Route::resource('fasilitas-user', FasilitasController::class);
+Route::resource('tipe-user', TipeController::class);
 Route::resource('user-booking', BookingController::class);

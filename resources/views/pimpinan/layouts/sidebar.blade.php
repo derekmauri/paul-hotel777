@@ -10,13 +10,16 @@
 				  <a href="{{ route('pimpinan')}}"><i class="fa fa-dashboard"><span class="path1"></span><span class="path2"></span></i><span>DASHBOARD</span></a>
 				</li>
                 <li >
-                    <a href="#"><i class="fa fa-user-circle-o"><span class="path1"></span><span class="path2"></span></i><span>KARYAWAN</span></a>
-                  </li>
+                    <a href="{{ route('karyawan-pimpinan.index')}}"><i class="fa fa-user-circle-o"><span class="path1"></span><span class="path2"></span></i><span>KARYAWAN</span></a>
+                  </li>               
                 <li >
-                    <a href="#"><i class="fa fa-hotel (alias)"><span class="path1"></span><span class="path2"></span></i><span>DAFTAR TAMU</span></a>
+                    <a href="{{ route('galeri-pimpinan.index')}}"><i class="fa fa-camera-retro"><span class="path1"></span><span class="path2"></span></i><span>GALERI</span></a>
+                 </li>
+                 <li >
+                    <a href="{{ route('tamu-pimpinan.index')}}"><i class="fa fa-hotel (alias)"><span class="path1"></span><span class="path2"></span></i><span>LAPORAN DAFTAR TAMU</span></a>
                  </li>
                 <li >
-                    <a href="#"><i class="fa fa-camera-retro"><span class="path1"></span><span class="path2"></span></i><span>GALERI</span></a>
+                    <a href="{{ route('transaksi-pimpinan.index')}}"><i class="fa fa-camera-retro"><span class="path1"></span><span class="path2"></span></i><span>LAPORAN TRANSAKSI</span></a>
                  </li>
 			  </ul>
 		  </div>
