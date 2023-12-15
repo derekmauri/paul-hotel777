@@ -79,7 +79,7 @@
                     </div>
 
                     <div class="clearfix">
-                        <a href="{{ route('booking.create') }}"><button type="button"
+                        <a href="{{ route('user-booking.create') }}"><button type="button"
                                 class="waves-effect waves-light btn btn-outline btn-primary-light mb-5">Tambah
                                 Data</button></a>
                     </div>
@@ -109,6 +109,7 @@
                                             <tr>
                                                 <th>No</th>
                                                 <th>Nama Tamu</th>
+                                                <th>Nomor Kamar</th>
                                                 <th>Tipe Kamar</th>
                                                 <th>Harga</th>
                                                 <th>Tgl. Booking</th>
@@ -141,6 +142,7 @@
                                             <tr>
                                                 <th>No</th>
                                                 <th>Nama Tamu</th>
+                                                <th>Nomor Kamar</th>
                                                 <th>Tipe Kamar</th>
                                                 <th>Harga</th>
                                                 <th>Tgl. Booking</th>

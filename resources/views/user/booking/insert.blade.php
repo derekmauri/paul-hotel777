@@ -34,7 +34,7 @@
                                     @csrf
                                     <div class="row">
                                         <div class="col-12">
-                                            <div class="form-group">
+                                            {{-- <div class="form-group">
                                                 <h5>Tipe Kamar<span class="text-danger"></span></h5>
                                                 <div class="controls">
                                                     <select name="tipe_id" id="tipe_id" required class="form-select">
@@ -47,8 +47,38 @@
                                                     </select>
                                                     <span id="harga_id"></span>
                                                 </div>
+                                            </div> --}}
+
+                                            <div class="form-group">
+                                                <h5>Tipe Kamar<span class="text-danger"></span></h5>
+                                                <div class="controls">
+                                                    <select name="daftar_kamar_id" id="daftar_kamar_id" required class="form-select">
+                                                        <option value="">- Pilih Nomor Kamar -</option>
+                                                        @foreach ($daftarKamar as $item)
+                                                            <option value="{{ $item->id }}"
+                                                                data-harga="{{ $item->tipe->harga }}">{{ $item->no_kamar }}
+                                                            </option>
+                                                        @endforeach
+                                                    </select>
+                                                    <span id="harga_id"></span>
+                                                </div>
                                             </div>
-                                            <div class="form-group d-none">
+
+
+
+                                            {{-- <div class="form-group d-none">
+                                                <h5>Tamu<span class="text-danger"></span></h5>
+                                                <div class="controls">
+                                                    <select name="tamu_id" required class="form-select">
+                                                        <option value="">- Pilih Tamu -</option>
+                                                        @foreach ($tamu as $item)
+                                                            <option value="{{ $item->id }}">{{ $item->nm_tamu }}
+                                                            </option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div> --}}
+                                            <div class="form-group">
                                                 <h5>Tamu<span class="text-danger"></span></h5>
                                                 <div class="controls">
                                                     <select name="tamu_id" required class="form-select">

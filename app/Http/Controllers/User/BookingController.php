@@ -39,9 +39,11 @@ class BookingController extends Controller
     {
         $tipe = tipe::all();
         $tamu = tamu::all();
+        $daftarKamar = DaftarKamar::all();
         return view('user.booking.insert', [
             'tipe' => $tipe,
             'tamu' => $tamu,
+            'daftarKamar' => $daftarKamar,
         ]);
     }
 
