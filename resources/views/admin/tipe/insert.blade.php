@@ -52,6 +52,13 @@
                                                         data-validation-required-message="Tidak boleh kosong">
                                                 </div>
                                             </div>
+                                            <div class="form-group">
+                                                <h5>Foto Kamar<span class="text-danger"></span></h5>
+                                                <div class="controls">
+                                                    <input type="file" name="foto_kamar" accept="image/*" id="foto"
+                                                        class="form-control" required>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="text-xs-right">

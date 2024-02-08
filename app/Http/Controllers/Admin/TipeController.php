@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use App\Models\tipe;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class TipeController extends Controller
 {
@@ -41,10 +42,15 @@ class TipeController extends Controller
     {
         // remove characters escape number
         $harga = str_replace('.', '', $request->harga);
+        $ekstensi_foto = $request->file('foto_kamar')->extension();
+        $nama_foto = time() . '.' . $ekstensi_foto;
+        Storage::putFileAs('public/foto_kamar', $request->foto_kamar, $nama_foto);
+
 
         tipe::create([
             'tipe_kamar' => $request->tipe_kamar,
             'harga' => $harga,
+            'foto_kamar' => $nama_foto
         ]);
 
         return redirect()->route('tipe.index')

@@ -56,6 +56,11 @@
                                                     <td align="center">{{ $loop->iteration }}</td>
                                                     <td>{{ $item->tipe_kamar }}</td>
                                                     <td>@rupiah($item->harga)</td>
+                                                    <td> <a href="{{ asset('storage/foto_kamar/' . $item->foto_kamar) }}"
+                                                            data-gallery="multiimages" title="Foto Kamar"><img
+                                                                src="{{ asset('storage/foto_kamar/' . $item->foto_kamar) }}"
+                                                                class="all studio" alt="gallery" width="100px" /></a></td>
+
                                                     <td align="center">
                                                         <a href="{{ route('tipe.edit', $item->id) }}"><button type="submit"
                                                                 class="waves-effect waves-light btn btn-outline btn-success mb-5"><i
