@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Pimpinan;
 
-use App\Http\Controllers\Controller;
-use App\Models\Karyawan;
+use App\Models\karyawan;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class KaryawanController extends Controller
 {

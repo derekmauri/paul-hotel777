@@ -99,6 +99,8 @@ class TipeController extends Controller
      */
     public function destroy($id)
     {
+        $tipe = tipe::find($id);
+        Storage::delete("public/foto_kamar/$tipe->foto_kamar");
         tipe::destroy($id);
         return redirect()->route('tipe.index')
             ->with('berhasil', 'Data Berhasil Dihapus');
