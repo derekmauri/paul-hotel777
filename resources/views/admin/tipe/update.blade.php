@@ -1,6 +1,6 @@
 @extends('admin.layouts.default')
 
-@section('judul', 'Edit Data Karyawan')
+@section('judul', 'Edit Data Tipe')
 
 @section('main')
 
@@ -55,9 +55,16 @@
                                                         data-validation-required-message="Tidak boleh kosong">
                                                 </div>
                                             </div>
+                                            <div class="form-group">
+                                                <h5>Foto Kamar<span class="text-danger"></span></h5>
+                                                <div class="controls">
+                                                    <input type="file" name="foto_kamar" id="foto"
+                                                        value="{{ $tipe->foto_kamar }}" class="form-control">
+                                                </div>
+                                            </div>
+
                                         </div>
                                     </div>
-
                             </div>
                             <div class="text-xs-right">
                                 <button type="submit" class="btn btn-info">Submit</button>

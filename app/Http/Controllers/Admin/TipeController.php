@@ -76,7 +76,10 @@ class TipeController extends Controller
      */
     public function edit($id)
     {
-        //
+        $tipe = tipe::find($id);
+        return view('admin.tipe.update', [
+            'tipe' => $tipe
+        ]);
     }
 
     /**
@@ -88,7 +91,26 @@ class TipeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // if $request->hasFile('foto_kamar')
+        $tipe = tipe::find($id);
+        $nama_foto = $tipe->foto_kamar;
+        $harga = str_replace('.', '', $request->harga);
+        if ($request->hasFile('foto_kamar')) {
+            // delete old image
+            Storage::delete('public/foto_kamar/' . $tipe->foto_kamar);
+            // upload new image
+            $ekstensi_foto = $request->file('foto_kamar')->extension();
+            $nama_foto = time() . '.' . $ekstensi_foto;
+            Storage::putFileAs('public/foto_kamar', $request->foto_kamar, $nama_foto);
+        }
+        tipe::find($id)->update([
+            'tipe_kamar' => $request->tipe_kamar,
+            'harga' => $harga,
+            'foto_kamar' => $nama_foto
+        ]);
+
+        return redirect()->route('tipe.index')
+            ->with('berhasil', 'Data Berhasil Diubah');
     }
 
     /**

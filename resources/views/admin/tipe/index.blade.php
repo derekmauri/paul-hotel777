@@ -47,6 +47,7 @@
                                                 <th>No</th>
                                                 <th>Tipe Kamar</th>
                                                 <th>Harga</th>
+                                                <th>Foto Kamar</th>
                                                 <th>Opsi</th>
                                             </tr>
                                         </thead>
